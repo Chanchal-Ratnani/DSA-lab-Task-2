@@ -1,0 +1,102 @@
+Task 1
+public class Array {
+static int findElement(int arr[],int n,int key){
+for(int i=0;i<n;i++) {
+if (arr[i] == key) {
+return i;
+}
+}
+return -1;
+}
+public static void main(String[] args) {
+int arr[]={12,34,10,6,40};
+int n=arr.length;
+int key=40;
+int position=findElement(arr,n,key);
+if(position==-1){
+System.out.println("Element not found");
+}
+else{
+System.out.println("Element found at position"+(position+1));
+}
+}
+}
+Task 2
+public class Array {
+static int insertEnd(int arr[],int n,int key,int capacity){
+if(n>=capacity){
+return n;
+}
+arr[n] = key; // insert key at the end
+return (n+1); //new size of array
+}
+
+public static void main(String[] args) {
+int arr[]=new int [20];
+arr[0]=12;
+arr[1]=16;
+arr[2]=20;
+arr[3]=40;
+arr[4]=50;
+arr[5]=70;
+int capacity =20;
+int n=6;
+int key=26;
+System.out.println("Before insertion");
+for(int i=0;i<n;i++){
+System.out.println(arr[i]+" ");
+}
+n=insertEnd(arr,n,key,capacity);
+System.out.println("After insertion");
+for(int i=0;i<n;i++){
+System.out.println(arr[i]+" ");
+}
+}
+
+}
+
+
+Task 3
+import java.io.*;
+
+public class Array {
+// Function to insert an element at a given position
+static int insertElement(int arr[], int n, int x, int poss) {
+// Shift elements to the right from the position to the end
+for (int i = n - 1; i >= poss; i--) {
+arr[i + 1] = arr[i];
+}
+// Insert the element at the specified position
+arr[poss] = x;
+
+// Return the new size of the array
+return n + 1;
+}
+
+public static void main(String[] args) {
+int arr[] = new int[25];
+arr[0] = 2;
+arr[1] = 4;
+arr[2] = 1;
+arr[3] = 8;
+arr[4] = 5;
+arr[5] = 5;
+
+int n = 6; // Current size of the array
+int x = 10; // Element to insert
+int poss = 2; // Position to insert the element at (0-based index)
+
+System.out.println("Before insertion:");
+for (int i = 0; i < n; i++) {
+System.out.print(arr[i] + " ");
+}
+
+// Insert element at the specified position
+n = insertElement(arr, n, x, poss);
+
+System.out.println("\nAfter insertion:");
+for (int i = 0; i < n; i++) {
+System.out.print(arr[i] + " ");
+}
+}
+}
